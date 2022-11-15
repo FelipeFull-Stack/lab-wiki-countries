@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 
 export function CountryCard(props) {
+
+    const {countryName, countryCode, countryTest} = props
+
     return (
-        <div class="container">
-            <div class="row">
-                <div class="col-5" style={{ maxHeight: '90vh', overFlow: 'scroll' }}>
-                    <div class="list-group">
+        <div className="container text-sm-center">
+            <div className="row">
+                <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scrol' }}>
+                    <div className="list-group d-flex">
                         <Link
-                            class="list-group-item list-group-item-action"
-                            to={`/${props.countryCode}`}
+                            className="list-group-item list-group-item-action"
+                            to={`/${countryCode}`}
                         >
-                            <div><img src={`https://flagpedia.net/data/flags/icon/72x54/${props.alpha2Code}.png`} alt=""/></div>
-                            {props.countryName}
+                            <div><img style={{width: '50%'}} src={`https://flagpedia.net/data/flags/icon/72x54/${countryTest.toLowerCase()}.png`} alt="" /></div>
+                            {countryName}
                         </Link>
                     </div>
                 </div>

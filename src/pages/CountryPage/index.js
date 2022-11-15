@@ -5,22 +5,22 @@ import { BordersCard } from "../../components/BordersCard";
 export function CountryPage() {
 
     const params = useParams();
-
-    const country = countries.filter((currentElement) => currentElement.alpha3Code === params.countryCode)[0]
-
+    const country = countries.filter((currentElement) => currentElement.alpha3Code === params.countryCode)
+    console.log(country)
     return (
         <div>
-            <h1>{country.name.common}</h1>
-            <table class="table">
+            <img style={{width: '75%'}} src={`https://flagpedia.net/data/flags/icon/72x54/${country[0].alpha2Code.toLowerCase()}.png`} alt="" />
+            <h1 className="text-center">{country[0].name.common}</h1>
+            <table className="table">
                 <tbody>
                     <tr>
                         <td style={{ width: "30%" }}>Capital:</td>
-                        <td>{country.capital}</td>
+                        <td>{country[0].capital}</td>
                     </tr>
                     <tr>
                         <td>Area:</td>
                         <td>
-                            {country.area} km
+                            {country[0].area} km
                             <sup>2</sup>
                         </td>
                     </tr>
@@ -28,7 +28,7 @@ export function CountryPage() {
                         <td>Borders:</td>
                         <td>
                             <ul>
-                                {countries.map((currentElement) => <BordersCard country2Code={currentElement.borders} />)}
+                                <BordersCard country2Code={country[0].borders} propsLink={country[0].alpha3Code}/>
 
                                 {/* <li><Link></Link></li>
                                 <li><a href="/AND">Andorra</a></li>

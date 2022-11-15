@@ -6,6 +6,7 @@ export function Menu() {
         return <CountryCard
             countryName={currentElement.name.common}
             countryCode={currentElement.alpha3Code}
+            countryTest={currentElement.alpha2Code}
         />
     })}
     </div>
